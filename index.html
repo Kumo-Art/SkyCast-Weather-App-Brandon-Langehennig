@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SkyCast</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen bg-slate-700 from-sky-400 to-indigo-600 text-white">
+    <main class="mx-auto max-w-5xl px-6 py-10">
+        <header>
+            <div class="bg-slate-500 flex flex-col-2 justify-between p-16">
+                <div>
+                    <h1 class="text-2xl font-bold text-2xl">SkyCast</h1>
+                </div>
+                <h1 class="text-2xl font-bold">Weather Report</h1>
+                <button id="mode-button">Light/Dark</button>
+            </div>
+            <div class="flex justify-center m-4 mr-6">
+                <form id="search-form">
+                    <input class="bg-slate-400 rounded-xl" id="city-input" type="text" placeholder="Search a city..." />
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div class="flex gap-50">
+                <div class="mb-4">
+                    <p>Day</p>
+                    <img class="rounded-full hover:scale-125" src="/assets/day.png" alt="Day picture">
+                </div>
+                <div class="bg-slate-400 rounded-full w-70 h-30">
+                    <h1>Favorite Cities:</h1>
+                    <ul></ul>
+                </div>
+                <div>
+                    <p>Night</p>
+                    <img class="rounded-full hover:scale-125" src="/assets/night.png" alt="Night picture">
+                </div>
+            </div>
+        </header>
+        <p id="status"></p>
+        <section id="today"></section>
+        <section>
+             <h2>5-Day Forecast</h2>
+            <div class="flex flex-col-5 mt-6">
+                
+                   
+
+                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <ul id="forecast"></ul>
+            </div>
+        </section>
+    </main>
+    <script src="config.js"></script> <!-- must load first -->
+    <script src="scripts.js"></script>
+</body>
+
+</htm
