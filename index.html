@@ -17,7 +17,10 @@
                     <h1 class="text-2xl font-bold text-2xl">SkyCast</h1>
                 </div>
                 <h1 class="text-2xl font-bold">Weather Report</h1>
-                <button id="mode-button">Light/Dark</button>
+                <div class="flex flex-col gap-4">
+                <button class="bg-slate-400 rounded-full" id="light-button">Light Mode</button>
+                <button class="bg-slate-400 rounded-full" id="dark-button">Dark Mode</button>
+                </div>
             </div>
             <div class="flex justify-center m-4 mr-6">
                 <form id="search-form">
@@ -30,7 +33,7 @@
                     <p>Day</p>
                     <img class="rounded-full hover:scale-125" src="/assets/day.png" alt="Day picture">
                 </div>
-                <div class="bg-slate-400 rounded-full w-70 h-30">
+                <div class="bg-slate-400 rounded-full w-70 h-30 flex justify-center mt-20">
                     <h1>Favorite Cities:</h1>
                     <ul></ul>
                 </div>
