@@ -12,17 +12,17 @@
 <body class="min-h-screen bg-slate-700 from-sky-400 to-indigo-600 text-white">
     <main class="mx-auto max-w-5xl px-6 py-10">
         <header>
-            <div class="bg-slate-500 flex flex-col-2 justify-between p-16">
+            <div class="bg-slate-500 flex flex-col-2 md:flex-col-1 justify-between p-16">
                 <div>
                     <h1 class="text-2xl font-bold text-2xl">SkyCast</h1>
                 </div>
-                <h1 class="text-2xl font-bold">Weather Report</h1>
+                <h1 class="text-6xl font-bold md:text-5xl">Weather Report</h1>
                 <div class="flex flex-col gap-4">
-                <button class="bg-slate-400 rounded-full" id="light-button">Light Mode</button>
-                <button class="bg-slate-400 rounded-full" id="dark-button">Dark Mode</button>
+                <button class="bg-slate-400 rounded-full hover:bg-slate-300" id="light-button">Light Mode</button>
+                <button class="bg-slate-400 rounded-full hover:bg-slate-300" id="dark-button">Dark Mode</button>
                 </div>
             </div>
-            <div class="flex justify-center m-4 mr-6">
+            <div class="flex md:flex-col-1 justify-center m-4 mr-6">
                 <form id="search-form">
                     <input class="bg-slate-400 rounded-xl" id="city-input" type="text" placeholder="Search a city..." />
                     <button type="submit">Search</button>
@@ -33,9 +33,10 @@
                     <p>Day</p>
                     <img class="rounded-full hover:scale-125" src="/assets/day.png" alt="Day picture">
                 </div>
-                <div class="bg-slate-400 rounded-full w-70 h-30 flex justify-center mt-20">
-                    <h1>Favorite Cities:</h1>
-                    <ul></ul>
+                <div class="bg-slate-400 rounded-full w-70 h-30 flex justify-center mt-20 md:w-90">
+                    <h1 class="ml-8 mt-2">Favorite Cities:</h1>
+                    <input class="border-0 outline-0" type="text" id="fav-input" placeholder="Enter your favorite city....">
+                    <ul id="fav-list"></ul>
                 </div>
                 <div>
                     <p>Night</p>
@@ -47,21 +48,21 @@
         <section id="today"></section>
         <section>
              <h2>5-Day Forecast</h2>
-            <div class="flex flex-col-5 mt-6">
+            <div class="flex flex-col-5 mt-6 justify-center">
                 
                    
 
-                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
-                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
-                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
-                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
-                    <img class=" h-100 w-50 object-cover hover:opacity-50" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50 md:h-70 md:w-40" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50 md:h-70 md:w-40" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50 md:h-70 md:w-40" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50 md:h-70 md:w-40" src="/assets/Screenshot 2026-11-02 135412.png">
+                    <img class=" h-100 w-50 object-cover hover:opacity-50 md:h-70 md:w-40" src="/assets/Screenshot 2026-11-02 135412.png">
                     <ul id="forecast"></ul>
             </div>
         </section>
     </main>
     <script src="config.js"></script> <!-- must load first -->
-    <script src="scripts.js"></script>
+    <script type="module" src="scripts.js"></script>
 </body>
 
 </htm
