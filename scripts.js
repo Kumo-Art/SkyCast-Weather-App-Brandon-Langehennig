@@ -1,11 +1,27 @@
-//import { getWeatherData } from "./config";
+//import { getWeatherData, getForecastData } from "./config.js";
 // ------- data ---------
 
+ 
+async function getWeatherJson(city) {
+    const response = await fetch( `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c000c84816aec73364c225d5e4077806`);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  
+
+}
+
+getWeatherJson("Stockton");
 
 
+async function getForecastJson(city) {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=c000c84816aec73364c225d5e4077806`);
+    const info = await res.json();
+    console.log(info);
+    return info;
+}
 
-
-
+getForecastJson("Stockton");
 //---------- elements ---------
 
 const lightBtn = document.getElementById("light-button");
@@ -20,11 +36,6 @@ const favInput = document.getElementById("fav-input");
 
 
 // ------- functions ---------
-
-const newFav = localStorage.getItem("fav-item") || "";
-
-favInput.value = newFav;
-
 
 
 
