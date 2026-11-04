@@ -21,7 +21,9 @@ const favInput = document.getElementById("fav-input");
 
 // ------- functions ---------
 
+const newFav = localStorage.getItem("fav-item") || "";
 
+favInput.value = newFav;
 
 
 
