@@ -1,0 +1,16 @@
+
+
+
+
+
+body.light {
+  --bg: #f4f1ea;
+  --panel: #fffdf8;
+  --border: #d9d2c3;
+  --text: #14213d;
+  --muted: #4a5568;
+  --accent: #c2410c;
+  --green: #2e7d32;
+  --blue: #1d4ed8;
+  --coral: #b42318;
+}

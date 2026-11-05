@@ -1,6 +1,6 @@
 //import { getWeatherData, getForecastData } from "./config.js";
 // ------- data ---------
-
+console.log(localStorage);
  
 async function getWeatherJson(city) {
     const response = await fetch( `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c000c84816aec73364c225d5e4077806`);
@@ -24,14 +24,13 @@ async function getForecastJson(city) {
 getForecastJson("Stockton");
 //---------- elements ---------
 
-const lightBtn = document.getElementById("light-button");
-const darkBtn = document.getElementById("dark-button");
+const themeToggle = document.getElementById("theme-toggle");
 const favList = document.getElementById("fav-list");
 const statusLine = document.getElementById("status");
 const current = document.getElementById("today");
-const forecast = document.getElementById("forecast");
 const city = document.getElementById("city-input");
 const favInput = document.getElementById("fav-input");
+const searchBtn = document.getElementById("search-button");
 
 
 
@@ -57,7 +56,18 @@ favInput.addEventListener("keydown", function(event) {
 });
 
     
+if(localStorage.getItem("SkyCast-theme") === "light"){
+  document.body.classList.add("light");
+}
+themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light");
 
+    if(document.body.classList.contains("light")) {
+      localStorage.setItem("skycast-theme","light");
+    }else {
+      localStorage.setItem("SkyCast-theme", "dark");
+    }
+});
 
 
 
