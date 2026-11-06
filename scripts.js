@@ -24,17 +24,13 @@ const forecastStatus = document.getElementById("forescast-status");
 
 // ------- functions ---------
 
-const showWeatherDay = (list) => {
-    tempList.textContent = "";
- 
-
- list.forEach((weather) => {
-    const card = document.createElement("article");
- card.classList.add("card");
-
-    
+const showWeatherDay = (weather) => {
+console.log(weather);
  const day = document.createElement("li");
+ 
  day.textContent = "Day";
+
+ 
 
  const name = document.createElement("li");
  name.textContent = weather.city.name;
@@ -75,87 +71,86 @@ const showWeatherDay = (list) => {
 
      wind.textContent = weather.wind;
 
-     appendChild(day);
-     appendChild(name);
-     appendChild(country);
-     appendChild(currentDate);
-     appendChild(currentTemp);
-     appendChild(condition);
-     appendChild(high);
-     appendChild(low);
-     appendChild(feelsLike);
-     appendChild(humidity);
-     appendChild(wind);
+     tempList.appendChild(name);
+     tempList.appendChild(day);
+     tempList.appendChild(country);
+     tempList.appendChild(currentDate);
+     tempList.appendChild(currentTemp);
+     tempList.appendChild(condition);
+     tempList.appendChild(high);
+     tempList.appendChild(low);
+     tempList.appendChild(feelsLike);
+     tempList.appendChild(humidity);
+     tempList.appendChild(wind);
 
-    tempList.appendChild(card);
- });
 }
 
 const showWeatherNight = (stats) => {
     tempList.textContent = "";
  
 
- stats.forEach((weather) => {
-    const card = document.createElement("article");
+ 
+    const card = document.createElement("ul");
  card.classList.add("card");
 
     
  const night = document.createElement("li");
- day.textContent = "Night";
+ night.textContent = "Night";
 
  const name = document.createElement("li");
- name.textContent = weather.name;
+ name.textContent = stats.city.name;
 
  const country = document.createElement("li");
  
- country.textContent = weather.country;
+ country.textContent = stats.city.country;
 
  const currentDate = document.createElement("li");
 
- currentDate.textContent = weather.currentDate;
+ currentDate.textContent = stats.city.timezone;
 
  const currentTemp = document.createElement("li");
 
- currentTemp.textContent = weather.currentTemp;
+ currentTemp.textContent = stats.currentTemp;
 
  const condition = document.createElement("li");
 
- condition.textContent = weather.condition;
+ condition.textContent = stats.condition;
 
  const high = document.createElement("li");
 
- high.textContent = weather.high;
+ high.textContent = stats.high;
 
   const low = document.createElement("li");
 
-  low.textContent = weather.low;
+  low.textContent = stats.low;
 
    const feelsLike = document.createElement("li");
 
-   feelsLike.textContent = weather.feelsLike
+   feelsLike.textContent = stats.feelsLike
 
     const humidity = document.createElement("li");
 
-    humidity.textContent = weather.humidity
+    humidity.textContent = stats.humidity
 
      const wind = document.createElement("li");
 
-     wind.textContent = weather.wind;
+     wind.textContent = stats.wind;
 
-     appendChild(night);
-     appendChild(name);
-     appendChild(country);
-     appendChild(currentDate);
-     appendChild(currentTemp);
-     appendChild(condition);
-     appendChild(high);
-     appendChild(low);
-     appendChild(feelsLike);
-     appendChild(humidity);
-     appendChild(wind);
+     tempList.appendChild(night);
+     tempList.appendChild(name);
+     tempList.appendChild(country);
+     tempList.appendChild(currentDate);
+     tempList.appendChild(currentTemp);
+     tempList.appendChild(condition);
+     tempList.appendChild(high);
+     tempList.appendChild(low);
+     tempList.appendChild(feelsLike);
+     tempList.appendChild(humidity);
+     tempList.appendChild(wind);
 
     tempList.appendChild(card);
- });
+
+    tempList.textContent = "";
 }
 
 
@@ -180,19 +175,20 @@ searchForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         statusLine.textContent = "Getting weather data....";
 
-        const cityWeather = cityInput.value.trim();
+        const cityWeather = cityInput.value.trim().toLowerCase();
         console.log(cityWeather);
-
+        const forecast = await getForecastData(cityWeather);
+        console.log(forecast);
         const weather = await getWeatherData(cityWeather);
         console.log(weather);
+        
+        showWeatherDay(forecast);
 
-        showWeatherDay(weather);
+        statusLine.textContent = `here is the current weather info for ${weather.name}`;
 
-        statusLine.textContent = `here is the current weather info ${weather.name}`;
+        showWeatherNight(forecast);
 
-        showWeatherNight(weather);
-
-        statusLine.textContent = `here is the weather for later ${weather.city.name}`;
+        statusLine.textContent = `here is the weather for later for ${weather.name}`;
 })
 
     
